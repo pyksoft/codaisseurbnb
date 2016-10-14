@@ -1,3 +1,6 @@
+<%= form_for @room, html: { multipart: true } do |f| %>
+  <% end %>
+
 <%= form_for @room do |f| %>
   <% @room.errors.full_messages.each do |msg| %>
     <p class="alert alert-danger"><%= msg %></p>
@@ -76,6 +79,19 @@
       <div class="input-group-addon">€</div>
       <%= f.number_field :price, placeholder: "eg. 100", class: "form-control" %>
     </div>
+  </div>
+
+  <label>Photos</label>
+
+  <div class="form-group">
+    <span class="btn btn-default">
+      Upload Photos
+      <%= file_field_tag "images[]", type: :file, multiple: true %>
+    </span>
+  </div>
+
+  <div id="photos">
+    <%= render 'photos/list' %>
   </div>
 
   <label>Publish this place?</label>

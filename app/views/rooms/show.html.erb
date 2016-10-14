@@ -1,3 +1,14 @@
+<!-- Booking Form -->
+<% if current_user != @room.user %>
+  <div class="panel panel-primary">
+    <div class="panel-heading">Book this room</div>
+
+    <div class="panel-body">
+      <%= render 'bookings/form' %>
+    </div>
+  </div>
+<% end %>
+
 <div class="panel panel-primary">
   <div class="panel-heading"><%= @room.listing_name %></div>
 
@@ -46,11 +57,8 @@
 <!-- Photos -->
 <h4>Photos</h4>
 <% @room.photos.each do |photo| %>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <%= image_tag photo.image.thumbnail %>
-  </div>
-</div>
+  <%= image_tag photo.image %>
 <% end %>
+
 
 <%= link_to "Back", rooms_path, class: "btn btn-default" %>

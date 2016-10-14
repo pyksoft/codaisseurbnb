@@ -453,3 +453,801 @@ FOREIGN KEY ("user_id")
   [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
   [1m[36mUser Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "bookings" ON "users"."id" = "bookings"."user_id" WHERE "bookings"."room_id" = $1 AND "users"."id" = $2 LIMIT $3[0m  [["room_id", 23], ["id", 29], ["LIMIT", 1]]
   [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (2.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "host@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (5.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "host@user.com"], ["encrypted_password", "$2a$04$BTL.tU2BTVem6JCPcrxYSO2wnxSsgThkfs0Y1BBQrA/S4Mo.JA3X6"], ["created_at", 2016-10-14 11:15:13 UTC], ["updated_at", 2016-10-14 11:15:13 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (5.9ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "At nulla sint est."], ["description", "Atque quo ex iure aspernatur ullam officiis culpa et quam explicabo exercitationem autem est at accusamus fugit eaque ipsa est incidunt ipsum ab sed natus eius et rerum mollitia nulla distinctio sequi aut qui dolorem aut sint facere dolor dolorum ut."], ["address", "Edenborough"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7ff334d50f78,'0.2E2',9(27)>], ["user_id", 1], ["created_at", 2016-10-14 11:15:13 UTC], ["updated_at", 2016-10-14 11:15:13 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "guest@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "guest@user.com"], ["encrypted_password", "$2a$04$O0n7eR.LEdl5KrqCL2Butee1zcW874xZd4LazAjcDTNxig8wn.FfC"], ["created_at", 2016-10-14 11:15:13 UTC], ["updated_at", 2016-10-14 11:15:13 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (7.0ms)[0m  [1m[32mINSERT INTO "bookings" ("user_id", "room_id", "starts_at", "ends_at", "price", "total", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 2], ["room_id", 1], ["starts_at", 2016-10-16 11:15:13 UTC], ["ends_at", 2016-10-20 11:15:13 UTC], ["price", #<BigDecimal:7ff334c6b6d0,'0.999E1',18(18)>], ["total", #<BigDecimal:7ff334c6b608,'0.999E1',18(18)>], ["created_at", 2016-10-14 11:15:13 UTC], ["updated_at", 2016-10-14 11:15:13 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "host@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "host@user.com"], ["encrypted_password", "$2a$04$KM6g7tt/5UA8XDL2q.6VM.8/AlUJtyi9g7yv74npvsYBvP.Sz635m"], ["created_at", 2016-10-14 11:15:13 UTC], ["updated_at", 2016-10-14 11:15:13 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Consequuntur nihil."], ["description", "Est repudiandae et ratione modi dolores cumque eum laboriosam est suscipit recusandae harum veritatis possimus consequatur aut perspiciatis consequatur maxime optio cum et error officiis delectus nihil ducimus velit reiciendis veniam illum omnis minus unde ipsa autem illo aut quidem aut nisi omnis enim quia."], ["address", "Port Elizabethmouth"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7ff335b0b370,'0.2E2',9(27)>], ["user_id", 3], ["created_at", 2016-10-14 11:15:13 UTC], ["updated_at", 2016-10-14 11:15:13 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "guest@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "guest@user.com"], ["encrypted_password", "$2a$04$X22nVDtPD1q1RyE15AaXQuDaRbcdZQ3YpZYPCfSZETG4rtcOtQQzS"], ["created_at", 2016-10-14 11:15:13 UTC], ["updated_at", 2016-10-14 11:15:13 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "bookings" ("user_id", "room_id", "starts_at", "ends_at", "price", "total", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 4], ["room_id", 2], ["starts_at", 2016-10-16 11:15:13 UTC], ["ends_at", 2016-10-20 11:15:13 UTC], ["price", #<BigDecimal:7ff335adccf0,'0.999E1',18(18)>], ["total", #<BigDecimal:7ff335adcc50,'0.999E1',18(18)>], ["created_at", 2016-10-14 11:15:13 UTC], ["updated_at", 2016-10-14 11:15:13 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lane@vonbogisich.net"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "lane@vonbogisich.net"], ["encrypted_password", "$2a$04$Om5CkzUNJs5jK5cJ5YZzBekdyQwMOKwsPCQ4l3lg5pSr97Swrh8JK"], ["created_at", 2016-10-14 11:15:13 UTC], ["updated_at", 2016-10-14 11:15:13 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Dolor quaerat suscipit sunt quia."], ["description", "Rerum rerum tempore deserunt et ipsa earum id qui animi perspiciatis facilis omnis magnam quos harum at quam placeat officiis soluta veniam occaecati laudantium est ut voluptatem tenetur quia et nemo mollitia recusandae aut eligendi iste reprehenderit vitae quo reiciendis laborum suscipit."], ["address", "Tristonbury"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7ff335a10c18,'0.2E2',9(27)>], ["user_id", 5], ["created_at", 2016-10-14 11:15:13 UTC], ["updated_at", 2016-10-14 11:15:13 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Culpa vero error."], ["description", "In soluta unde dignissimos dolor nisi earum veniam hic fuga ut libero corporis aut consequatur mollitia nobis officiis eaque harum animi veritatis doloribus porro eos odio perspiciatis quia reprehenderit et est dolorem sapiente ullam cum error et deleniti voluptas quo sed magnam tempore voluptatum."], ["address", "West Elliotview"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7ff334a58f50,'0.2E3',9(27)>], ["user_id", 5], ["created_at", 2016-10-14 11:15:13 UTC], ["updated_at", 2016-10-14 11:15:13 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "benedict_wolff@walsh.net"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "benedict_wolff@walsh.net"], ["encrypted_password", "$2a$04$33aB2lTU.s3v6IUYx0WoY.EhyPyjaBDnK.5gQMJEzwli17xdYbTam"], ["created_at", 2016-10-14 11:15:14 UTC], ["updated_at", 2016-10-14 11:15:14 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "abe.gottlieb@reichert.net"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "abe.gottlieb@reichert.net"], ["encrypted_password", "$2a$04$pWJw2llINgH8bh/cM8FL6udPZBPUtwlqhf/V6hK0tXfV5hxR6Q2Je"], ["created_at", 2016-10-14 11:15:14 UTC], ["updated_at", 2016-10-14 11:15:14 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Quia nobis eveniet."], ["description", "Exercitationem nostrum ut dolor velit ratione et aut ab autem quidem in est labore alias non iure vel porro dolor omnis in numquam aut accusantium ut repellendus voluptatem vel aut debitis reiciendis fuga omnis illo fugit mollitia nobis quo laudantium optio."], ["address", "Port Lonnymouth"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7ff334909938,'0.714E2',18(36)>], ["user_id", 7], ["created_at", 2016-10-14 11:15:14 UTC], ["updated_at", 2016-10-14 11:15:14 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "Bright"], ["LIMIT", 1]]
+  [1m[35mSQL (2.5ms)[0m  [1m[32mINSERT INTO "themes" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Bright"], ["created_at", 2016-10-14 11:15:14 UTC], ["updated_at", 2016-10-14 11:15:14 UTC]]
+  [1m[35mSQL (5.3ms)[0m  [1m[32mINSERT INTO "rooms_themes" ("room_id", "theme_id") VALUES ($1, $2)[0m  [["room_id", 5], ["theme_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" INNER JOIN "rooms_themes" ON "themes"."id" = "rooms_themes"."theme_id" WHERE "rooms_themes"."room_id" = $1 AND "themes"."id" = $2 LIMIT $3[0m  [["room_id", 5], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "Clean lines"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "themes" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Clean lines"], ["created_at", 2016-10-14 11:15:14 UTC], ["updated_at", 2016-10-14 11:15:14 UTC]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "rooms_themes" ("room_id", "theme_id") VALUES ($1, $2)[0m  [["room_id", 5], ["theme_id", 2]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" INNER JOIN "rooms_themes" ON "themes"."id" = "rooms_themes"."theme_id" WHERE "rooms_themes"."room_id" = $1 AND "themes"."id" = $2 LIMIT $3[0m  [["room_id", 5], ["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "A Man's Touch"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "themes" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "A Man's Touch"], ["created_at", 2016-10-14 11:15:14 UTC], ["updated_at", 2016-10-14 11:15:14 UTC]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "rooms_themes" ("room_id", "theme_id") VALUES ($1, $2)[0m  [["room_id", 5], ["theme_id", 3]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" INNER JOIN "rooms_themes" ON "themes"."id" = "rooms_themes"."theme_id" WHERE "rooms_themes"."room_id" = $1 AND "themes"."id" = $2 LIMIT $3[0m  [["room_id", 5], ["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "host@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "host@user.com"], ["encrypted_password", "$2a$04$DlZiBmUyxYV2jFwGY1MYWexwYqFzKwbLIZr8dSRlLZMtgdjSzo/zO"], ["created_at", 2016-10-14 11:15:14 UTC], ["updated_at", 2016-10-14 11:15:14 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Natus incidunt quo ut."], ["description", "Dolor atque quo deleniti nihil quis laboriosam iure qui quaerat libero accusamus non qui fugit eos possimus omnis iste cupiditate error voluptatibus velit voluptatem itaque a veniam reiciendis quisquam adipisci quia tenetur sapiente ad inventore iusto aliquid nesciunt repellendus expedita culpa vel et asperiores molestias."], ["address", "Lake Lora"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7ff33176d230,'0.9449E2',18(36)>], ["user_id", 8], ["created_at", 2016-10-14 11:15:14 UTC], ["updated_at", 2016-10-14 11:15:14 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "guest@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "guest@user.com"], ["encrypted_password", "$2a$04$0EebRgn/KHMrEB7822WMbuPJBOUmfKxtYqXD8gHeuz8aOh6OAnQ.y"], ["created_at", 2016-10-14 11:15:14 UTC], ["updated_at", 2016-10-14 11:15:14 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "bookings" ("user_id", "room_id", "starts_at", "ends_at", "price", "total", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 9], ["room_id", 6], ["starts_at", 2016-10-14 10:22:22 UTC], ["ends_at", 2016-10-14 10:22:22 UTC], ["price", #<BigDecimal:7ff33258e440,'0.999E1',18(18)>], ["total", #<BigDecimal:7ff33258e120,'0.999E1',18(18)>], ["created_at", 2016-10-14 11:15:14 UTC], ["updated_at", 2016-10-14 11:15:14 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "bookings" ON "users"."id" = "bookings"."user_id" WHERE "bookings"."room_id" = $1 AND "users"."id" = $2 LIMIT $3[0m  [["room_id", 6], ["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (2.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "host@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "host@user.com"], ["encrypted_password", "$2a$04$90cukal49gWdjNifvdrECOXuRh0yTwMdMSwHWLtSh2vpAKwg5CzYe"], ["created_at", 2016-10-14 11:16:10 UTC], ["updated_at", 2016-10-14 11:16:10 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Impedit numquam quidem."], ["description", "Ipsa magni adipisci voluptatem qui itaque sunt odio alias nulla ullam eveniet nisi praesentium illum eos corrupti illo vel reprehenderit recusandae veniam vel et aliquid magnam expedita repellat et libero impedit odit quidem est commodi quos repellendus ut numquam exercitationem."], ["address", "North Elzahaven"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7fb88f497650,'0.2E2',9(27)>], ["user_id", 10], ["created_at", 2016-10-14 11:16:10 UTC], ["updated_at", 2016-10-14 11:16:10 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "guest@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "guest@user.com"], ["encrypted_password", "$2a$04$5jic7HUXlNCw6.5a7QPV/OnH6Uc7f7pUjXJn1U9BZ38XbR9uzuwyS"], ["created_at", 2016-10-14 11:16:10 UTC], ["updated_at", 2016-10-14 11:16:10 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.3ms)[0m  [1m[32mINSERT INTO "bookings" ("user_id", "room_id", "starts_at", "ends_at", "price", "total", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 11], ["room_id", 7], ["starts_at", 2016-10-16 11:16:10 UTC], ["ends_at", 2016-10-20 11:16:10 UTC], ["price", #<BigDecimal:7fb88f38d5e8,'0.999E1',18(18)>], ["total", #<BigDecimal:7fb88f38d548,'0.999E1',18(18)>], ["created_at", 2016-10-14 11:16:10 UTC], ["updated_at", 2016-10-14 11:16:10 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "host@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "host@user.com"], ["encrypted_password", "$2a$04$jzRWlBq6m84qw6HArutiMOZAGuz0gcZuBFWF/TCYpDsvnVvyOre8G"], ["created_at", 2016-10-14 11:16:10 UTC], ["updated_at", 2016-10-14 11:16:10 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Dicta illum velit et."], ["description", "Quia laudantium quia laboriosam non veritatis dignissimos a perspiciatis qui soluta est nisi et doloribus quos nesciunt debitis quo aut consequatur voluptatem possimus qui repudiandae sit sapiente et repellendus ut commodi assumenda fugit sed accusantium voluptate tempora velit et iure."], ["address", "Aliviamouth"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7fb88fc69b30,'0.2E2',9(27)>], ["user_id", 12], ["created_at", 2016-10-14 11:16:10 UTC], ["updated_at", 2016-10-14 11:16:10 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "guest@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "guest@user.com"], ["encrypted_password", "$2a$04$vfceO4.rPPjox8srZPhfue2crbyniJE9nbOFyOdfZqYwyO7HDYId."], ["created_at", 2016-10-14 11:16:10 UTC], ["updated_at", 2016-10-14 11:16:10 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "bookings" ("user_id", "room_id", "starts_at", "ends_at", "price", "total", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 13], ["room_id", 8], ["starts_at", 2016-10-16 11:16:10 UTC], ["ends_at", 2016-10-20 11:16:10 UTC], ["price", #<BigDecimal:7fb88fc23db0,'0.999E1',18(18)>], ["total", #<BigDecimal:7fb88fc23d10,'0.999E1',18(18)>], ["created_at", 2016-10-14 11:16:10 UTC], ["updated_at", 2016-10-14 11:16:10 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "buster@koelpin.biz"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "buster@koelpin.biz"], ["encrypted_password", "$2a$04$yJjLmLcfjo2QDAR.FsTcVuVWoLO.MKE8H49V6qvFzfu8ok1j/QsVK"], ["created_at", 2016-10-14 11:16:10 UTC], ["updated_at", 2016-10-14 11:16:10 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Quia consectetur aliquam."], ["description", "Amet vitae quasi qui ut error nisi veniam reprehenderit et debitis ratione officiis et consequatur excepturi architecto quod voluptatem odit sit odio cupiditate inventore suscipit earum ipsa dicta esse voluptatibus qui enim commodi quas ad voluptates vel autem laudantium quaerat mollitia dolores velit."], ["address", "North Elena"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7fb88f2d3c38,'0.2E2',9(27)>], ["user_id", 14], ["created_at", 2016-10-14 11:16:10 UTC], ["updated_at", 2016-10-14 11:16:10 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Dignissimos repellendus."], ["description", "Magnam quasi a quibusdam doloremque excepturi qui ratione quaerat repellendus facilis nihil aperiam voluptatem reprehenderit eos unde dolor sit sit quia saepe non et velit omnis aut est laudantium aut sint voluptatem odit minus ea omnis ut dolores quia deleniti natus et labore et nesciunt."], ["address", "Herzogfort"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7fb88fa597c8,'0.2E3',9(27)>], ["user_id", 14], ["created_at", 2016-10-14 11:16:10 UTC], ["updated_at", 2016-10-14 11:16:10 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nikolas@robelmertz.io"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "nikolas@robelmertz.io"], ["encrypted_password", "$2a$04$Kk7BkuNIrSz15g7ZvrRtPOtewlKyrUQurnTmVo6m1YHdl6m/rmNsa"], ["created_at", 2016-10-14 11:16:10 UTC], ["updated_at", 2016-10-14 11:16:10 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "misty_herman@shanahan.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "misty_herman@shanahan.com"], ["encrypted_password", "$2a$04$lCZCzI2.EGiQc3RPObDy9ePSSINXooG/RnqxWMxdX4rub/5lwg5zK"], ["created_at", 2016-10-14 11:16:10 UTC], ["updated_at", 2016-10-14 11:16:10 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Fuga quae distinctio."], ["description", "Non distinctio culpa aut harum sapiente voluptate consequuntur ea et id aliquam similique totam a recusandae minus vitae ullam fugit nulla qui iusto dolor commodi voluptas sint repudiandae aspernatur tempore voluptatem expedita et at adipisci quasi ex corrupti omnis perspiciatis autem et ea nobis."], ["address", "Schimmelport"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7fb88f1b8f38,'0.4614E2',18(36)>], ["user_id", 16], ["created_at", 2016-10-14 11:16:10 UTC], ["updated_at", 2016-10-14 11:16:10 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "Bright"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "themes" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Bright"], ["created_at", 2016-10-14 11:16:10 UTC], ["updated_at", 2016-10-14 11:16:10 UTC]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "rooms_themes" ("room_id", "theme_id") VALUES ($1, $2)[0m  [["room_id", 11], ["theme_id", 4]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" INNER JOIN "rooms_themes" ON "themes"."id" = "rooms_themes"."theme_id" WHERE "rooms_themes"."room_id" = $1 AND "themes"."id" = $2 LIMIT $3[0m  [["room_id", 11], ["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "Clean lines"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "themes" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Clean lines"], ["created_at", 2016-10-14 11:16:10 UTC], ["updated_at", 2016-10-14 11:16:10 UTC]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "rooms_themes" ("room_id", "theme_id") VALUES ($1, $2)[0m  [["room_id", 11], ["theme_id", 5]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" INNER JOIN "rooms_themes" ON "themes"."id" = "rooms_themes"."theme_id" WHERE "rooms_themes"."room_id" = $1 AND "themes"."id" = $2 LIMIT $3[0m  [["room_id", 11], ["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "A Man's Touch"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "themes" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "A Man's Touch"], ["created_at", 2016-10-14 11:16:10 UTC], ["updated_at", 2016-10-14 11:16:10 UTC]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "rooms_themes" ("room_id", "theme_id") VALUES ($1, $2)[0m  [["room_id", 11], ["theme_id", 6]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" INNER JOIN "rooms_themes" ON "themes"."id" = "rooms_themes"."theme_id" WHERE "rooms_themes"."room_id" = $1 AND "themes"."id" = $2 LIMIT $3[0m  [["room_id", 11], ["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "host@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "host@user.com"], ["encrypted_password", "$2a$04$IM1HWw8eAcw9OI/Nl07dJOmvajxBvjgehoba8PP1KE28PYvXBMf4m"], ["created_at", 2016-10-14 11:16:10 UTC], ["updated_at", 2016-10-14 11:16:10 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Ea quos minus laborum natus est."], ["description", "Libero aut minima quod aut ut nemo occaecati consectetur sed optio praesentium molestiae sunt et asperiores aliquid vel rerum explicabo rerum harum aut voluptatem molestiae non veniam corrupti dolorem sed accusamus esse atque recusandae possimus illum laborum quidem voluptatem eaque omnis quos pariatur eos."], ["address", "South Ettie"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7fb88b6c5688,'0.377E1',18(36)>], ["user_id", 17], ["created_at", 2016-10-14 11:16:10 UTC], ["updated_at", 2016-10-14 11:16:10 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "guest@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "guest@user.com"], ["encrypted_password", "$2a$04$MnoK/7Qd54IaytO7.BVrhuyICX5m5FdCxbyt1GVLcUJyVEIBZVcVO"], ["created_at", 2016-10-14 11:16:10 UTC], ["updated_at", 2016-10-14 11:16:10 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "bookings" ("user_id", "room_id", "starts_at", "ends_at", "price", "total", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 18], ["room_id", 12], ["starts_at", 2016-10-14 10:22:22 UTC], ["ends_at", 2016-10-14 10:22:22 UTC], ["price", #<BigDecimal:7fb88b696f90,'0.999E1',18(18)>], ["total", #<BigDecimal:7fb88b696ef0,'0.999E1',18(18)>], ["created_at", 2016-10-14 11:16:10 UTC], ["updated_at", 2016-10-14 11:16:10 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "bookings" ON "users"."id" = "bookings"."user_id" WHERE "bookings"."room_id" = $1 AND "users"."id" = $2 LIMIT $3[0m  [["room_id", 12], ["id", 18], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (3.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "host@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "host@user.com"], ["encrypted_password", "$2a$04$Mrk3kyew4nrP1WDZe.eau.B0GcSng7NOxHFQHUsLOvWK2NiBwJP8G"], ["created_at", 2016-10-14 11:16:20 UTC], ["updated_at", 2016-10-14 11:16:20 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Enim rerum voluptatum dolores dolorum."], ["description", "Praesentium sunt cum non voluptas dolor ad ut sit architecto qui harum eligendi ducimus dolores natus aut voluptatem perspiciatis ipsum quia voluptas sint nisi quam maxime soluta modi repellendus dolor sed quia ex ea aut eaque vel rerum molestiae tempora voluptas eos."], ["address", "Eduardomouth"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7faaab3fa338,'0.2E2',9(27)>], ["user_id", 19], ["created_at", 2016-10-14 11:16:20 UTC], ["updated_at", 2016-10-14 11:16:20 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "guest@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "guest@user.com"], ["encrypted_password", "$2a$04$MBZwmaL8FLV5SePzHMv5i.viSzxbbt1SrhkqZpLqPNUrstxoV2PHK"], ["created_at", 2016-10-14 11:16:20 UTC], ["updated_at", 2016-10-14 11:16:20 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO "bookings" ("user_id", "room_id", "starts_at", "ends_at", "price", "total", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 20], ["room_id", 13], ["starts_at", 2016-10-16 11:16:20 UTC], ["ends_at", 2016-10-20 11:16:20 UTC], ["price", #<BigDecimal:7faaabb20ab8,'0.999E1',18(18)>], ["total", #<BigDecimal:7faaabb20a18,'0.999E1',18(18)>], ["created_at", 2016-10-14 11:16:20 UTC], ["updated_at", 2016-10-14 11:16:20 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "host@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "host@user.com"], ["encrypted_password", "$2a$04$fnhEs08gXHUryZ1OoULZxeS2w/X9gjwlvw.MPOSs7/XxREXGKnQa2"], ["created_at", 2016-10-14 11:16:20 UTC], ["updated_at", 2016-10-14 11:16:20 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Ut."], ["description", "Dolores qui eum magni facere optio dicta voluptates qui velit officiis et aliquid animi in voluptas illo ea dolorem est facilis et a reiciendis eveniet harum ratione corporis architecto aut dolor quas quia omnis cum tenetur nihil id blanditiis non."], ["address", "Harveymouth"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7faaabadd060,'0.2E2',9(27)>], ["user_id", 21], ["created_at", 2016-10-14 11:16:20 UTC], ["updated_at", 2016-10-14 11:16:20 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "guest@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "guest@user.com"], ["encrypted_password", "$2a$04$mQrPG93PIrQOpqnPf98Y/eJQpXSLeUEOhXNXdADcEj9isezjrnhxu"], ["created_at", 2016-10-14 11:16:20 UTC], ["updated_at", 2016-10-14 11:16:20 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "bookings" ("user_id", "room_id", "starts_at", "ends_at", "price", "total", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 22], ["room_id", 14], ["starts_at", 2016-10-16 11:16:20 UTC], ["ends_at", 2016-10-20 11:16:20 UTC], ["price", #<BigDecimal:7faaaba9f030,'0.999E1',18(18)>], ["total", #<BigDecimal:7faaaba9ef90,'0.999E1',18(18)>], ["created_at", 2016-10-14 11:16:20 UTC], ["updated_at", 2016-10-14 11:16:20 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jaunita_kreiger@streichhilll.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "jaunita_kreiger@streichhilll.org"], ["encrypted_password", "$2a$04$DwizgismM2d2V4VBN0U9SegSg2gaz5wILtYPj6X5w/UpC6W5edEdm"], ["created_at", 2016-10-14 11:16:20 UTC], ["updated_at", 2016-10-14 11:16:20 UTC]]
+  [1m[35m (2.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Quaerat neque."], ["description", "Modi aut sit labore et necessitatibus culpa quibusdam odio voluptatem odit harum suscipit omnis cum explicabo pariatur fugit exercitationem ipsa omnis doloribus et corrupti reprehenderit id expedita natus tempora dolor dolor et nulla quam fuga voluptas quod aspernatur velit consequatur earum sed."], ["address", "Douglasmouth"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7faaab29a498,'0.2E2',9(27)>], ["user_id", 23], ["created_at", 2016-10-14 11:16:20 UTC], ["updated_at", 2016-10-14 11:16:20 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Aut aut deserunt quaerat corporis facilis."], ["description", "Consectetur qui quia cupiditate eligendi consequatur minus quo expedita rerum aut quasi ipsam consequatur sit et deleniti itaque est aut doloribus praesentium fuga nam blanditiis quibusdam veritatis nemo molestias dolor ea omnis suscipit cum voluptas corrupti error libero explicabo numquam ullam voluptas."], ["address", "Klockohaven"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7faaab949c30,'0.2E3',9(27)>], ["user_id", 23], ["created_at", 2016-10-14 11:16:20 UTC], ["updated_at", 2016-10-14 11:16:20 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jodie.runte@kreiger.biz"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "jodie.runte@kreiger.biz"], ["encrypted_password", "$2a$04$ACK8ufoKI1em7MfjF0/WVu0xDkuca.qfQR5nrh.PiNHCooLz.LQ6u"], ["created_at", 2016-10-14 11:16:20 UTC], ["updated_at", 2016-10-14 11:16:20 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "shana.reichert@bosco.biz"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "shana.reichert@bosco.biz"], ["encrypted_password", "$2a$04$dcCEU0x2JkZ5AEkFtlFCdeTjCChwSOQCYF2MtuAwbGZMGlFqL9cmi"], ["created_at", 2016-10-14 11:16:20 UTC], ["updated_at", 2016-10-14 11:16:20 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Nam."], ["description", "Enim perferendis ipsum iste assumenda aliquid eos odit praesentium aperiam sed voluptates unde rerum neque rerum vel in pariatur fugiat labore voluptas repellat est cupiditate omnis nemo quasi id ea possimus nihil et et quaerat necessitatibus iure voluptatem maiores molestiae a mollitia aspernatur voluptatibus totam."], ["address", "North Jeffryville"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7faaab81a7b0,'0.4048E2',18(36)>], ["user_id", 25], ["created_at", 2016-10-14 11:16:20 UTC], ["updated_at", 2016-10-14 11:16:20 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "Bright"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "themes" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Bright"], ["created_at", 2016-10-14 11:16:20 UTC], ["updated_at", 2016-10-14 11:16:20 UTC]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "rooms_themes" ("room_id", "theme_id") VALUES ($1, $2)[0m  [["room_id", 17], ["theme_id", 7]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" INNER JOIN "rooms_themes" ON "themes"."id" = "rooms_themes"."theme_id" WHERE "rooms_themes"."room_id" = $1 AND "themes"."id" = $2 LIMIT $3[0m  [["room_id", 17], ["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "Clean lines"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "themes" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Clean lines"], ["created_at", 2016-10-14 11:16:20 UTC], ["updated_at", 2016-10-14 11:16:20 UTC]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "rooms_themes" ("room_id", "theme_id") VALUES ($1, $2)[0m  [["room_id", 17], ["theme_id", 8]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" INNER JOIN "rooms_themes" ON "themes"."id" = "rooms_themes"."theme_id" WHERE "rooms_themes"."room_id" = $1 AND "themes"."id" = $2 LIMIT $3[0m  [["room_id", 17], ["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "A Man's Touch"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "themes" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "A Man's Touch"], ["created_at", 2016-10-14 11:16:20 UTC], ["updated_at", 2016-10-14 11:16:20 UTC]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "rooms_themes" ("room_id", "theme_id") VALUES ($1, $2)[0m  [["room_id", 17], ["theme_id", 9]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" INNER JOIN "rooms_themes" ON "themes"."id" = "rooms_themes"."theme_id" WHERE "rooms_themes"."room_id" = $1 AND "themes"."id" = $2 LIMIT $3[0m  [["room_id", 17], ["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "host@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "host@user.com"], ["encrypted_password", "$2a$04$0yluOGYJW7zHAXJM760QCuuXiSj1dn.wOy28u3tapfyXr/sXbhbFO"], ["created_at", 2016-10-14 11:16:20 UTC], ["updated_at", 2016-10-14 11:16:20 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Sed sit perspiciatis."], ["description", "Laudantium dolor velit natus corrupti quas deserunt et aperiam iure sit vel laborum et hic aut quaerat consequatur ut rerum perspiciatis officia et eaque quos voluptatum quo similique vitae in omnis distinctio cupiditate facere libero eos veritatis aliquid quis exercitationem est ut aspernatur."], ["address", "Spinkaview"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7faaa6e67de8,'0.6048E2',18(36)>], ["user_id", 26], ["created_at", 2016-10-14 11:16:20 UTC], ["updated_at", 2016-10-14 11:16:20 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "guest@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "guest@user.com"], ["encrypted_password", "$2a$04$vKDasr01KvTGUXCapbUF8udjrIEjJq6.2p2rswWPOrMDamHhFTbwa"], ["created_at", 2016-10-14 11:16:20 UTC], ["updated_at", 2016-10-14 11:16:20 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "bookings" ("user_id", "room_id", "starts_at", "ends_at", "price", "total", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 27], ["room_id", 18], ["starts_at", 2016-10-14 10:22:22 UTC], ["ends_at", 2016-10-14 10:22:22 UTC], ["price", #<BigDecimal:7faaa6da40c8,'0.999E1',18(18)>], ["total", #<BigDecimal:7faaa6da4d48,'0.999E1',18(18)>], ["created_at", 2016-10-14 11:16:20 UTC], ["updated_at", 2016-10-14 11:16:20 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (2.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "bookings" ON "users"."id" = "bookings"."user_id" WHERE "bookings"."room_id" = $1 AND "users"."id" = $2 LIMIT $3[0m  [["room_id", 18], ["id", 27], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (4.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "host@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "host@user.com"], ["encrypted_password", "$2a$04$Om6UZI15wfcfubxsf.mPputxM64W.bD/DfGykg8CZemOAPqi4bsaa"], ["created_at", 2016-10-14 11:20:26 UTC], ["updated_at", 2016-10-14 11:20:26 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "host@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "host@user.com"], ["encrypted_password", "$2a$04$dhy8EqBhrEI8qXHiFGR9VuJ9sLVe17eymspE5JOtyWNxoxFd.5hyu"], ["created_at", 2016-10-14 11:20:27 UTC], ["updated_at", 2016-10-14 11:20:27 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Cupiditate quae in qui nisi laboriosam."], ["description", "Consequatur maiores alias sed ut voluptate ipsam vero earum voluptatibus iste aut nesciunt unde sint nulla praesentium architecto debitis magnam consectetur libero amet labore placeat tenetur dicta et dolores deleniti minus quis modi iusto et in quod odit necessitatibus voluptatem magni recusandae quas repellendus omnis."], ["address", "Kilbackberg"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7f82e8ae1948,'0.2E2',9(27)>], ["user_id", 29], ["created_at", 2016-10-14 11:20:27 UTC], ["updated_at", 2016-10-14 11:20:27 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "guest@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "guest@user.com"], ["encrypted_password", "$2a$04$lcjzvLALD8q6TyShPF1DWeN3DNa99CPIu6cfCCC0eImwpG3pzSgzO"], ["created_at", 2016-10-14 11:20:27 UTC], ["updated_at", 2016-10-14 11:20:27 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (10.6ms)[0m  [1m[32mINSERT INTO "bookings" ("user_id", "room_id", "starts_at", "ends_at", "price", "total", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 30], ["room_id", 19], ["starts_at", 2016-10-16 11:20:27 UTC], ["ends_at", 2016-10-20 11:20:27 UTC], ["price", #<BigDecimal:7f82e8a53968,'0.999E1',18(18)>], ["total", #<BigDecimal:7f82e8a538c8,'0.999E1',18(18)>], ["created_at", 2016-10-14 11:20:27 UTC], ["updated_at", 2016-10-14 11:20:27 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "giles_oconnell@croninwilliamson.biz"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "giles_oconnell@croninwilliamson.biz"], ["encrypted_password", "$2a$04$AThVMnR8eCCsElMIS8/gvu5qfEmh/yEZ6a465yqtq1yroO9Ef6IM6"], ["created_at", 2016-10-14 11:20:27 UTC], ["updated_at", 2016-10-14 11:20:27 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Deserunt mollitia officiis."], ["description", "Nisi et similique dicta qui voluptate voluptatem cumque amet optio quis eveniet aperiam excepturi quisquam molestias dolor iusto necessitatibus modi blanditiis illum beatae et dolor et consequatur error earum fugit deleniti officiis accusamus commodi nihil cupiditate eligendi est tempore sit voluptatem et minus esse."], ["address", "Schuppeshire"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7f82e84722d8,'0.2E2',9(27)>], ["user_id", 31], ["created_at", 2016-10-14 11:20:27 UTC], ["updated_at", 2016-10-14 11:20:27 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Corporis neque necessitatibus expedita."], ["description", "Reprehenderit ut a qui ipsa voluptatem perferendis id aut odit veniam pariatur molestias culpa ullam sed vitae incidunt deleniti ea magnam et rerum aut et expedita eos voluptatem quaerat ut cum dolore enim explicabo quia et et eos nulla provident omnis itaque."], ["address", "North Veda"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7f82e89ba538,'0.2E3',9(27)>], ["user_id", 31], ["created_at", 2016-10-14 11:20:27 UTC], ["updated_at", 2016-10-14 11:20:27 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "matilde_greenfelder@mayert.net"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "matilde_greenfelder@mayert.net"], ["encrypted_password", "$2a$04$FansIMiHp7tRAGTTJT3wX.DC0/Sf2MW2fl6wz1qv7skDsmgxBW3zW"], ["created_at", 2016-10-14 11:20:27 UTC], ["updated_at", 2016-10-14 11:20:27 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "eliza@hermanbernhard.co"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "eliza@hermanbernhard.co"], ["encrypted_password", "$2a$04$8Br6Mtl7IQIszDvfRp8FKuC2G9N0SuyDydGX9vUy1PGTZAS0pYspy"], ["created_at", 2016-10-14 11:20:27 UTC], ["updated_at", 2016-10-14 11:20:27 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Dolor excepturi magnam quae voluptate."], ["description", "Aliquid aut magnam ex ut corporis omnis sit voluptatem ullam totam deserunt quae perspiciatis odio soluta repellendus ipsa excepturi quos hic similique commodi facilis nisi neque magni voluptatem ratione est cumque sit dolore placeat quaerat quo id est sit voluptatem omnis non."], ["address", "Lake Fabianville"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7f82e82e2f58,'0.9106E2',18(36)>], ["user_id", 33], ["created_at", 2016-10-14 11:20:27 UTC], ["updated_at", 2016-10-14 11:20:27 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (1.9ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "Bright"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "themes" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Bright"], ["created_at", 2016-10-14 11:20:27 UTC], ["updated_at", 2016-10-14 11:20:27 UTC]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "rooms_themes" ("room_id", "theme_id") VALUES ($1, $2)[0m  [["room_id", 22], ["theme_id", 10]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (1.6ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" INNER JOIN "rooms_themes" ON "themes"."id" = "rooms_themes"."theme_id" WHERE "rooms_themes"."room_id" = $1 AND "themes"."id" = $2 LIMIT $3[0m  [["room_id", 22], ["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "Clean lines"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "themes" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Clean lines"], ["created_at", 2016-10-14 11:20:27 UTC], ["updated_at", 2016-10-14 11:20:27 UTC]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "rooms_themes" ("room_id", "theme_id") VALUES ($1, $2)[0m  [["room_id", 22], ["theme_id", 11]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" INNER JOIN "rooms_themes" ON "themes"."id" = "rooms_themes"."theme_id" WHERE "rooms_themes"."room_id" = $1 AND "themes"."id" = $2 LIMIT $3[0m  [["room_id", 22], ["id", 11], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "A Man's Touch"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "themes" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "A Man's Touch"], ["created_at", 2016-10-14 11:20:27 UTC], ["updated_at", 2016-10-14 11:20:27 UTC]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "rooms_themes" ("room_id", "theme_id") VALUES ($1, $2)[0m  [["room_id", 22], ["theme_id", 12]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" INNER JOIN "rooms_themes" ON "themes"."id" = "rooms_themes"."theme_id" WHERE "rooms_themes"."room_id" = $1 AND "themes"."id" = $2 LIMIT $3[0m  [["room_id", 22], ["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "host@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "host@user.com"], ["encrypted_password", "$2a$04$eyK5lqBJy0gmV7q9muFZN.za.X2RFihtGEGqj2FwzVjNePUcZM3lW"], ["created_at", 2016-10-14 11:20:27 UTC], ["updated_at", 2016-10-14 11:20:27 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Veritatis amet tempore nihil."], ["description", "Error sapiente quos dolor laborum voluptate quo nihil voluptatem eum ut animi sunt placeat a saepe magnam illo eveniet deleniti nostrum odio dolorem ex tenetur fugiat molestiae explicabo ut sint aut debitis ipsam alias nulla iste voluptatum laboriosam vel aut rem qui et voluptatem dignissimos."], ["address", "Port Evansfort"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7f82e477c720,'0.4335E2',18(36)>], ["user_id", 34], ["created_at", 2016-10-14 11:20:27 UTC], ["updated_at", 2016-10-14 11:20:27 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "guest@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "guest@user.com"], ["encrypted_password", "$2a$04$4bE3.1Ik1NEruoAo6tSv9.iWXx/GCNc6b8DoVZpYP82u8O6XRXynC"], ["created_at", 2016-10-14 11:20:27 UTC], ["updated_at", 2016-10-14 11:20:27 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "bookings" ("user_id", "room_id", "starts_at", "ends_at", "price", "total", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 35], ["room_id", 23], ["starts_at", 2016-10-14 10:22:22 UTC], ["ends_at", 2016-10-14 10:22:22 UTC], ["price", #<BigDecimal:7f82e474d3d0,'0.999E1',18(18)>], ["total", #<BigDecimal:7f82e474cf70,'0.999E1',18(18)>], ["created_at", 2016-10-14 11:20:27 UTC], ["updated_at", 2016-10-14 11:20:27 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (2.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "bookings" ON "users"."id" = "bookings"."user_id" WHERE "bookings"."room_id" = $1 AND "users"."id" = $2 LIMIT $3[0m  [["room_id", 23], ["id", 35], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (4.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "host@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "host@user.com"], ["encrypted_password", "$2a$04$hxlIpK1xEiBxFvItdf0N0et/rtozFch14k/NbCzMy.sYV6Tm/XZ52"], ["created_at", 2016-10-14 11:21:06 UTC], ["updated_at", 2016-10-14 11:21:06 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.9ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Corporis id eos quis."], ["description", "Non quia ex asperiores explicabo veritatis mollitia reprehenderit praesentium consequatur sapiente quia aliquam inventore eum sit est vitae molestiae consequatur architecto dignissimos aut impedit corrupti nihil est possimus laudantium voluptate commodi eos ipsum repellat quos quaerat saepe sequi excepturi omnis nesciunt."], ["address", "East Gailchester"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7fc1413b6e60,'0.2E2',9(27)>], ["user_id", 36], ["created_at", 2016-10-14 11:21:06 UTC], ["updated_at", 2016-10-14 11:21:06 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "guest@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "guest@user.com"], ["encrypted_password", "$2a$04$W1JWepWpS/WyM7KKhXLSrOHVLBTkk1BbYO75pAj2t499st3mpXRom"], ["created_at", 2016-10-14 11:21:06 UTC], ["updated_at", 2016-10-14 11:21:06 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.6ms)[0m  [1m[32mINSERT INTO "bookings" ("user_id", "room_id", "starts_at", "ends_at", "price", "total", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 37], ["room_id", 24], ["starts_at", 2016-10-16 11:21:06 UTC], ["ends_at", 2016-10-20 11:21:06 UTC], ["price", #<BigDecimal:7fc1412d8070,'0.999E1',18(18)>], ["total", #<BigDecimal:7fc1412dabb8,'0.999E1',18(18)>], ["created_at", 2016-10-14 11:21:06 UTC], ["updated_at", 2016-10-14 11:21:06 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "host@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "host@user.com"], ["encrypted_password", "$2a$04$COqBAHjk5gWr7cNer4qQ.eR5eEgSZc/BzSejyKR7SznvmV1VcjPPa"], ["created_at", 2016-10-14 11:21:06 UTC], ["updated_at", 2016-10-14 11:21:06 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Quia voluptatum consequatur."], ["description", "Ut maxime itaque rerum molestias corporis voluptas modi velit dolor repellat reprehenderit velit ducimus iusto et ea odit eum quam magnam eveniet totam eius harum nesciunt optio vel autem quo vero molestiae cumque dolore ex consequuntur laudantium possimus nam et soluta eaque quo facilis."], ["address", "West Melvina"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7fc1412b4738,'0.2E2',9(27)>], ["user_id", 38], ["created_at", 2016-10-14 11:21:06 UTC], ["updated_at", 2016-10-14 11:21:06 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "guest@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "guest@user.com"], ["encrypted_password", "$2a$04$jSxl7wifW.Kvys9exsnkFup1r/2QhE9EPCKwoKXEQYMFUxdyy0SL2"], ["created_at", 2016-10-14 11:21:06 UTC], ["updated_at", 2016-10-14 11:21:06 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "bookings" ("user_id", "room_id", "starts_at", "ends_at", "price", "total", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 39], ["room_id", 25], ["starts_at", 2016-10-16 11:21:06 UTC], ["ends_at", 2016-10-20 11:21:06 UTC], ["price", #<BigDecimal:7fc140d25fd8,'0.999E1',18(18)>], ["total", #<BigDecimal:7fc140d25f38,'0.999E1',18(18)>], ["created_at", 2016-10-14 11:21:06 UTC], ["updated_at", 2016-10-14 11:21:06 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "liam.ohara@smitham.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "liam.ohara@smitham.com"], ["encrypted_password", "$2a$04$VXO/0b9/U.OhwtALI638B.wzlewwrknEHYDU5ql4RvLt1T.amu3iC"], ["created_at", 2016-10-14 11:21:06 UTC], ["updated_at", 2016-10-14 11:21:06 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Incidunt doloremque dolorem ex et."], ["description", "Animi consequuntur voluptates et qui et facilis fugit voluptas neque molestiae ad aut ut alias eos optio iusto voluptatum voluptas saepe iste similique pariatur autem excepturi expedita officia odio sed reprehenderit adipisci voluptatem qui nihil voluptate maiores harum laboriosam assumenda et ratione perspiciatis."], ["address", "Schadenchester"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7fc140b188a8,'0.2E2',9(27)>], ["user_id", 40], ["created_at", 2016-10-14 11:21:06 UTC], ["updated_at", 2016-10-14 11:21:06 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Facere incidunt."], ["description", "Autem fugit repellat voluptatem cupiditate voluptas iste eum veritatis iure maxime voluptatem asperiores optio vitae qui officiis assumenda in non et vero enim quas in debitis perferendis labore autem amet expedita odio corrupti voluptates adipisci exercitationem tempore quaerat culpa aut."], ["address", "Delmerfort"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7fc1411c9288,'0.2E3',9(27)>], ["user_id", 40], ["created_at", 2016-10-14 11:21:06 UTC], ["updated_at", 2016-10-14 11:21:06 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "hermann@schmitt.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "hermann@schmitt.com"], ["encrypted_password", "$2a$04$xJ4wMxzSUmegdmzQTBWjf.KA5wWzqEQAjSUSieypiaeqCXOm0FJry"], ["created_at", 2016-10-14 11:21:06 UTC], ["updated_at", 2016-10-14 11:21:06 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tremaine_haag@harvey.io"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "tremaine_haag@harvey.io"], ["encrypted_password", "$2a$04$v/2zTZ7Em40F.LZYzpl/muuPpsCrgklVk935DDY1VeRDqtpNv7HHS"], ["created_at", 2016-10-14 11:21:06 UTC], ["updated_at", 2016-10-14 11:21:06 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Ea ut saepe."], ["description", "Iste enim facere sit exercitationem fuga et et sit est dolor nobis expedita neque consequuntur incidunt officiis provident quia nihil et alias sapiente nostrum atque minima aspernatur ipsum corporis veritatis consequatur doloremque repellendus dignissimos fugiat natus optio qui eveniet et quo beatae consequatur dolorem."], ["address", "Huelfurt"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7fc140978520,'0.8144E2',18(36)>], ["user_id", 42], ["created_at", 2016-10-14 11:21:06 UTC], ["updated_at", 2016-10-14 11:21:06 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (1.6ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "Bright"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "themes" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Bright"], ["created_at", 2016-10-14 11:21:06 UTC], ["updated_at", 2016-10-14 11:21:06 UTC]]
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "rooms_themes" ("room_id", "theme_id") VALUES ($1, $2)[0m  [["room_id", 28], ["theme_id", 13]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" INNER JOIN "rooms_themes" ON "themes"."id" = "rooms_themes"."theme_id" WHERE "rooms_themes"."room_id" = $1 AND "themes"."id" = $2 LIMIT $3[0m  [["room_id", 28], ["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "Clean lines"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "themes" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Clean lines"], ["created_at", 2016-10-14 11:21:06 UTC], ["updated_at", 2016-10-14 11:21:06 UTC]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "rooms_themes" ("room_id", "theme_id") VALUES ($1, $2)[0m  [["room_id", 28], ["theme_id", 14]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" INNER JOIN "rooms_themes" ON "themes"."id" = "rooms_themes"."theme_id" WHERE "rooms_themes"."room_id" = $1 AND "themes"."id" = $2 LIMIT $3[0m  [["room_id", 28], ["id", 14], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "A Man's Touch"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "themes" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "A Man's Touch"], ["created_at", 2016-10-14 11:21:06 UTC], ["updated_at", 2016-10-14 11:21:06 UTC]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "rooms_themes" ("room_id", "theme_id") VALUES ($1, $2)[0m  [["room_id", 28], ["theme_id", 15]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" INNER JOIN "rooms_themes" ON "themes"."id" = "rooms_themes"."theme_id" WHERE "rooms_themes"."room_id" = $1 AND "themes"."id" = $2 LIMIT $3[0m  [["room_id", 28], ["id", 15], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "host@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "host@user.com"], ["encrypted_password", "$2a$04$fQZBP4tpVycWsj55WJWcGOhfu4J9aE3RVyTA9GCbn1/2yOEr0irs6"], ["created_at", 2016-10-14 11:21:06 UTC], ["updated_at", 2016-10-14 11:21:06 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Facere omnis delectus alias."], ["description", "Perspiciatis dicta nostrum quia accusantium quae praesentium voluptatem ipsum deleniti occaecati est quia dolores consequatur qui dolorum eveniet qui et eos assumenda numquam sunt suscipit ipsa et culpa consequatur totam saepe explicabo magni eaque sit expedita inventore qui aut ipsam rerum facilis quo laboriosam."], ["address", "Clarabellefurt"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7fc13d6ea108,'0.2698E2',18(36)>], ["user_id", 43], ["created_at", 2016-10-14 11:21:06 UTC], ["updated_at", 2016-10-14 11:21:06 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "guest@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "guest@user.com"], ["encrypted_password", "$2a$04$ZHVnH11esbXrWRHtxZ1BEubte6jHrqj3cLuPw1eVewSm3.Zg5VeQ2"], ["created_at", 2016-10-14 11:21:06 UTC], ["updated_at", 2016-10-14 11:21:06 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "bookings" ("user_id", "room_id", "starts_at", "ends_at", "price", "total", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 44], ["room_id", 29], ["starts_at", 2016-10-14 10:22:22 UTC], ["ends_at", 2016-10-14 10:22:22 UTC], ["price", #<BigDecimal:7fc13d6c0ee8,'0.999E1',18(18)>], ["total", #<BigDecimal:7fc13d6c0d80,'0.999E1',18(18)>], ["created_at", 2016-10-14 11:21:06 UTC], ["updated_at", 2016-10-14 11:21:06 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (2.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "bookings" ON "users"."id" = "bookings"."user_id" WHERE "bookings"."room_id" = $1 AND "users"."id" = $2 LIMIT $3[0m  [["room_id", 29], ["id", 44], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (3.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "host@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "host@user.com"], ["encrypted_password", "$2a$04$960E7Slva0eIp8baPpp3Z.X6Wh8ZWBDR/EUqFEd/IYbMg80sHrYHC"], ["created_at", 2016-10-14 11:21:37 UTC], ["updated_at", 2016-10-14 11:21:37 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.9ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Laudantium nihil eum sunt."], ["description", "Iste aut sed et nam asperiores eligendi quae ea voluptatem qui totam quam distinctio temporibus laborum iure voluptatibus voluptates autem magni praesentium dolor labore vel adipisci modi dolorem vero cupiditate et doloremque molestiae ea minus quod ut molestias ut nobis voluptatum blanditiis tempora."], ["address", "Tremblaymouth"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7ff017bfe500,'0.2E2',9(27)>], ["user_id", 45], ["created_at", 2016-10-14 11:21:37 UTC], ["updated_at", 2016-10-14 11:21:37 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "guest@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "guest@user.com"], ["encrypted_password", "$2a$04$87czyXB/w.f7NHi44oi50uErRgzaEhgjL1gZNG2eiTSpIkMC7ZM/W"], ["created_at", 2016-10-14 11:21:37 UTC], ["updated_at", 2016-10-14 11:21:37 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.3ms)[0m  [1m[32mINSERT INTO "bookings" ("user_id", "room_id", "starts_at", "ends_at", "price", "total", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 46], ["room_id", 30], ["starts_at", 2016-10-16 11:21:37 UTC], ["ends_at", 2016-10-20 11:21:37 UTC], ["price", #<BigDecimal:7ff0183c5478,'0.999E1',18(18)>], ["total", #<BigDecimal:7ff0183c53d8,'0.999E1',18(18)>], ["created_at", 2016-10-14 11:21:37 UTC], ["updated_at", 2016-10-14 11:21:37 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mBooking Load (1.8ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."room_id" = $1[0m  [["room_id", 30]]
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "host@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "host@user.com"], ["encrypted_password", "$2a$04$u8xb5Dm8O0ZZ3fqEGAce2ulcdjkO6rzi7DXEGLF0xbvUTz3z39RaW"], ["created_at", 2016-10-14 11:21:37 UTC], ["updated_at", 2016-10-14 11:21:37 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Id dolor esse."], ["description", "Soluta sed recusandae nisi deleniti tempora quia illum et id expedita eos accusamus possimus ut consectetur nam voluptatem incidunt reiciendis perferendis molestiae adipisci alias quia eos dicta quibusdam iure et velit maxime commodi ducimus nostrum fugiat est modi est sapiente provident repudiandae aliquam harum aspernatur."], ["address", "Buckridgeberg"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7ff01831f960,'0.2E2',9(27)>], ["user_id", 47], ["created_at", 2016-10-14 11:21:37 UTC], ["updated_at", 2016-10-14 11:21:37 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "guest@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "guest@user.com"], ["encrypted_password", "$2a$04$aZld136FSGg91Oo.PypLvuVsycDace7SGDWgyICvKdMaWoBWx28NW"], ["created_at", 2016-10-14 11:21:37 UTC], ["updated_at", 2016-10-14 11:21:37 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "bookings" ("user_id", "room_id", "starts_at", "ends_at", "price", "total", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 48], ["room_id", 31], ["starts_at", 2016-10-16 11:21:37 UTC], ["ends_at", 2016-10-20 11:21:37 UTC], ["price", #<BigDecimal:7ff017b32bf8,'0.999E1',18(18)>], ["total", #<BigDecimal:7ff017b32a90,'0.999E1',18(18)>], ["created_at", 2016-10-14 11:21:37 UTC], ["updated_at", 2016-10-14 11:21:37 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mBooking Load (0.3ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."room_id" = $1[0m  [["room_id", 31]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jedidiah@kuvalismertz.name"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "jedidiah@kuvalismertz.name"], ["encrypted_password", "$2a$04$4aMGdIK6fQfw8TX/.WgVTe2jx9SccytYBiM/IsY7KT308LE.4bF6W"], ["created_at", 2016-10-14 11:21:37 UTC], ["updated_at", 2016-10-14 11:21:37 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Facilis ut unde odio facere."], ["description", "Magni sint quo consequatur repellendus ad et qui voluptas incidunt qui deserunt odit et aliquid impedit aut animi iste exercitationem est vitae veritatis quia sunt laboriosam delectus nobis voluptas qui qui in quaerat amet rem sed eius voluptatum nulla dolor quo."], ["address", "New Travis"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7ff0181c18c0,'0.2E2',9(27)>], ["user_id", 49], ["created_at", 2016-10-14 11:21:37 UTC], ["updated_at", 2016-10-14 11:21:37 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "andres.ohara@gerlach.io"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "andres.ohara@gerlach.io"], ["encrypted_password", "$2a$04$E/naaLJveUpM6EPOKYDsYuy9oOhOth2C4bZAzTODbgujNWuGBkLEG"], ["created_at", 2016-10-14 11:21:37 UTC], ["updated_at", 2016-10-14 11:21:37 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ray@grimes.info"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "ray@grimes.info"], ["encrypted_password", "$2a$04$eFFIWkp4lpgI9vSzXlfUxOyytkIFxgd8acm9s/ctspu/bntzuc/4y"], ["created_at", 2016-10-14 11:21:37 UTC], ["updated_at", 2016-10-14 11:21:37 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Iste qui quasi tenetur deserunt delectus."], ["description", "Et occaecati eaque asperiores quo repellat assumenda aperiam repellendus ut quibusdam est sint aut minima molestias consectetur accusantium consequatur nihil ex delectus ut excepturi amet quia nobis vel pariatur iure quia iusto harum eos aut aut libero numquam autem sit doloremque qui sint velit."], ["address", "Greenshire"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7ff0180b0a08,'0.7702E2',18(36)>], ["user_id", 51], ["created_at", 2016-10-14 11:21:37 UTC], ["updated_at", 2016-10-14 11:21:37 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (1.6ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "Bright"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "themes" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Bright"], ["created_at", 2016-10-14 11:21:37 UTC], ["updated_at", 2016-10-14 11:21:37 UTC]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "rooms_themes" ("room_id", "theme_id") VALUES ($1, $2)[0m  [["room_id", 33], ["theme_id", 16]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" INNER JOIN "rooms_themes" ON "themes"."id" = "rooms_themes"."theme_id" WHERE "rooms_themes"."room_id" = $1 AND "themes"."id" = $2 LIMIT $3[0m  [["room_id", 33], ["id", 16], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "Clean lines"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "themes" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Clean lines"], ["created_at", 2016-10-14 11:21:37 UTC], ["updated_at", 2016-10-14 11:21:37 UTC]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "rooms_themes" ("room_id", "theme_id") VALUES ($1, $2)[0m  [["room_id", 33], ["theme_id", 17]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" INNER JOIN "rooms_themes" ON "themes"."id" = "rooms_themes"."theme_id" WHERE "rooms_themes"."room_id" = $1 AND "themes"."id" = $2 LIMIT $3[0m  [["room_id", 33], ["id", 17], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "A Man's Touch"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "themes" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "A Man's Touch"], ["created_at", 2016-10-14 11:21:37 UTC], ["updated_at", 2016-10-14 11:21:37 UTC]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "rooms_themes" ("room_id", "theme_id") VALUES ($1, $2)[0m  [["room_id", 33], ["theme_id", 18]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" INNER JOIN "rooms_themes" ON "themes"."id" = "rooms_themes"."theme_id" WHERE "rooms_themes"."room_id" = $1 AND "themes"."id" = $2 LIMIT $3[0m  [["room_id", 33], ["id", 18], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "host@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "host@user.com"], ["encrypted_password", "$2a$04$FWlyVRCAxeYzVCsmqLv5We4zb8qoeNcr8jCtcwcVb4ZYU.rut4xEq"], ["created_at", 2016-10-14 11:21:37 UTC], ["updated_at", 2016-10-14 11:21:37 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Et."], ["description", "Est deserunt consequatur voluptate quo nesciunt aliquid iure ducimus soluta accusantium inventore tempora quibusdam neque odit repudiandae maiores non temporibus numquam earum dolor necessitatibus ut dolores qui omnis error aut rerum facere delectus non atque voluptatem dolorem doloremque ipsa quia voluptatem ut nulla architecto est."], ["address", "Kennedichester"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7ff0135ef7f8,'0.5331E2',18(36)>], ["user_id", 52], ["created_at", 2016-10-14 11:21:38 UTC], ["updated_at", 2016-10-14 11:21:38 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "guest@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "guest@user.com"], ["encrypted_password", "$2a$04$6cNygzGGHdNSmbhWtkxGAOm3HfxTqOTw6/5gMvM/Bt54/gZSHNNdO"], ["created_at", 2016-10-14 11:21:38 UTC], ["updated_at", 2016-10-14 11:21:38 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "bookings" ("user_id", "room_id", "starts_at", "ends_at", "price", "total", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 53], ["room_id", 34], ["starts_at", 2016-10-14 10:22:22 UTC], ["ends_at", 2016-10-14 10:22:22 UTC], ["price", #<BigDecimal:7ff013586c30,'0.999E1',18(18)>], ["total", #<BigDecimal:7ff013586a00,'0.999E1',18(18)>], ["created_at", 2016-10-14 11:21:38 UTC], ["updated_at", 2016-10-14 11:21:38 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "bookings" ON "users"."id" = "bookings"."user_id" WHERE "bookings"."room_id" = $1 AND "users"."id" = $2 LIMIT $3[0m  [["room_id", 34], ["id", 53], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (2.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "host@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "host@user.com"], ["encrypted_password", "$2a$04$bTyLJCvY59X4VOTfOpi9Ye3VMxKRRJLnvRUC9iIssC0L35uNHPnt2"], ["created_at", 2016-10-14 11:22:21 UTC], ["updated_at", 2016-10-14 11:22:21 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "host@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "host@user.com"], ["encrypted_password", "$2a$04$EuTCIyLbYxO2L8bcZd59POLjWxrDvzK2vNQLVnNOhkYxWUV4MLHbu"], ["created_at", 2016-10-14 11:22:22 UTC], ["updated_at", 2016-10-14 11:22:22 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.1ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Maiores."], ["description", "Nemo quo officia velit aut mollitia laudantium veniam numquam amet quos quam libero quod iusto pariatur cum inventore est eaque doloremque itaque voluptates nisi qui velit dolorem reprehenderit ut saepe molestiae nulla nihil ad est ipsam suscipit possimus omnis quis accusantium voluptatem modi aut."], ["address", "Port Kenna"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7fac4e4999e8,'0.2E2',9(27)>], ["user_id", 55], ["created_at", 2016-10-14 11:22:22 UTC], ["updated_at", 2016-10-14 11:22:22 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "guest@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "guest@user.com"], ["encrypted_password", "$2a$04$pqFfImQFWKZCdLZKyyNKB./Rl6BZiYs1gzeWHotPji0MZ/S/PLG9G"], ["created_at", 2016-10-14 11:22:22 UTC], ["updated_at", 2016-10-14 11:22:22 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.3ms)[0m  [1m[32mINSERT INTO "bookings" ("user_id", "room_id", "starts_at", "ends_at", "price", "total", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 56], ["room_id", 35], ["starts_at", 2016-10-16 11:22:22 UTC], ["ends_at", 2016-10-20 11:22:22 UTC], ["price", #<BigDecimal:7fac4e3de5f8,'0.999E1',18(18)>], ["total", #<BigDecimal:7fac4e3de508,'0.999E1',18(18)>], ["created_at", 2016-10-14 11:22:22 UTC], ["updated_at", 2016-10-14 11:22:22 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mBooking Load (2.3ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."room_id" = $1[0m  [["room_id", 35]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jacky@sporer.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "jacky@sporer.com"], ["encrypted_password", "$2a$04$LQuYiaE19WRUO3LZmimJu.eedB7xfeUT2u4H9gM2hZ6hI5CJbdeYG"], ["created_at", 2016-10-14 11:22:22 UTC], ["updated_at", 2016-10-14 11:22:22 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Nesciunt sit aut quia."], ["description", "Qui numquam in et sequi id velit et animi sed quaerat reiciendis qui iusto voluptas molestias est voluptatem fuga quis officia esse sunt sapiente nisi distinctio eos dolore alias earum explicabo ab natus repudiandae sit officiis perspiciatis sunt est non a repellat."], ["address", "East Osbaldoville"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7fac4e213340,'0.2E2',9(27)>], ["user_id", 57], ["created_at", 2016-10-14 11:22:22 UTC], ["updated_at", 2016-10-14 11:22:22 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Eligendi numquam nulla corporis."], ["description", "Rerum aut esse possimus sunt veniam tempore voluptatibus voluptatum dolores doloribus et nulla neque provident sequi saepe ad excepturi omnis porro nostrum ea tempora quo totam qui voluptas quis cupiditate quaerat dolorum et in et ducimus commodi fuga nemo et reiciendis ut eum."], ["address", "West Reedside"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7fac4da68348,'0.2E3',9(27)>], ["user_id", 57], ["created_at", 2016-10-14 11:22:22 UTC], ["updated_at", 2016-10-14 11:22:22 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "shayne.moen@rath.net"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "shayne.moen@rath.net"], ["encrypted_password", "$2a$04$7tZ4xsjg38Re7Hi7mQRK0OQlWugYRNkk8pcowoCYLnue66qgnPeDy"], ["created_at", 2016-10-14 11:22:22 UTC], ["updated_at", 2016-10-14 11:22:22 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "melisa.ohara@hane.biz"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "melisa.ohara@hane.biz"], ["encrypted_password", "$2a$04$7q/aH2/JOf2nY489RmXZUeVfpBOVGMqO7joKFk49.UxB7Fwz.2gn2"], ["created_at", 2016-10-14 11:22:22 UTC], ["updated_at", 2016-10-14 11:22:22 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Asperiores repellendus nam."], ["description", "Vel et odit ipsa labore recusandae delectus eum quibusdam aut ducimus sint fugit libero et quasi sint rerum qui et minima nemo tenetur tempora repellendus facilis omnis nihil rerum ad tempore consequatur non occaecati reprehenderit qui assumenda et explicabo distinctio eveniet velit."], ["address", "Kierantown"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7fac4d9c1b60,'0.2614E2',18(36)>], ["user_id", 59], ["created_at", 2016-10-14 11:22:22 UTC], ["updated_at", 2016-10-14 11:22:22 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "Bright"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "themes" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Bright"], ["created_at", 2016-10-14 11:22:22 UTC], ["updated_at", 2016-10-14 11:22:22 UTC]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "rooms_themes" ("room_id", "theme_id") VALUES ($1, $2)[0m  [["room_id", 38], ["theme_id", 19]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" INNER JOIN "rooms_themes" ON "themes"."id" = "rooms_themes"."theme_id" WHERE "rooms_themes"."room_id" = $1 AND "themes"."id" = $2 LIMIT $3[0m  [["room_id", 38], ["id", 19], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "Clean lines"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "themes" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Clean lines"], ["created_at", 2016-10-14 11:22:22 UTC], ["updated_at", 2016-10-14 11:22:22 UTC]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "rooms_themes" ("room_id", "theme_id") VALUES ($1, $2)[0m  [["room_id", 38], ["theme_id", 20]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" INNER JOIN "rooms_themes" ON "themes"."id" = "rooms_themes"."theme_id" WHERE "rooms_themes"."room_id" = $1 AND "themes"."id" = $2 LIMIT $3[0m  [["room_id", 38], ["id", 20], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "A Man's Touch"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "themes" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "A Man's Touch"], ["created_at", 2016-10-14 11:22:22 UTC], ["updated_at", 2016-10-14 11:22:22 UTC]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "rooms_themes" ("room_id", "theme_id") VALUES ($1, $2)[0m  [["room_id", 38], ["theme_id", 21]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" INNER JOIN "rooms_themes" ON "themes"."id" = "rooms_themes"."theme_id" WHERE "rooms_themes"."room_id" = $1 AND "themes"."id" = $2 LIMIT $3[0m  [["room_id", 38], ["id", 21], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "host@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "host@user.com"], ["encrypted_password", "$2a$04$CApmVnYqUScT9tEX4d7du..vEijJIsKR8GG9l7lNeTWscxMkfkbvm"], ["created_at", 2016-10-14 11:22:22 UTC], ["updated_at", 2016-10-14 11:22:22 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Et laudantium sint optio."], ["description", "Cumque aut et similique non est quae nostrum laboriosam inventore est numquam porro doloremque quis iusto quia dignissimos ipsam sit voluptate modi omnis natus maiores fuga et officiis et in dolorem et quidem ipsum a itaque aspernatur fugiat corrupti qui dolorem quos sequi."], ["address", "South Samara"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7fac497231f0,'0.8361E2',18(36)>], ["user_id", 60], ["created_at", 2016-10-14 11:22:22 UTC], ["updated_at", 2016-10-14 11:22:22 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "guest@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "guest@user.com"], ["encrypted_password", "$2a$04$MW9Yf64vJY1Q.eZ9PLgn1u.waeFpuv0fq6jx7hqX9A2cmJ2yGGBpG"], ["created_at", 2016-10-14 11:22:22 UTC], ["updated_at", 2016-10-14 11:22:22 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "bookings" ("user_id", "room_id", "starts_at", "ends_at", "price", "total", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 61], ["room_id", 39], ["starts_at", 2016-10-14 10:22:22 UTC], ["ends_at", 2016-10-14 10:22:22 UTC], ["price", #<BigDecimal:7fac49dc10e8,'0.999E1',18(18)>], ["total", #<BigDecimal:7fac49dc1048,'0.999E1',18(18)>], ["created_at", 2016-10-14 11:22:22 UTC], ["updated_at", 2016-10-14 11:22:22 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "bookings" ON "users"."id" = "bookings"."user_id" WHERE "bookings"."room_id" = $1 AND "users"."id" = $2 LIMIT $3[0m  [["room_id", 39], ["id", 61], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (3.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "host@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "host@user.com"], ["encrypted_password", "$2a$04$BE56iExRZDxNrbl1EupXb.KbMUbI3U6z4plhml0cyaSjOzp.SkMb6"], ["created_at", 2016-10-14 11:22:32 UTC], ["updated_at", 2016-10-14 11:22:32 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.1ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Officia quis."], ["description", "Mollitia earum in sequi rerum eius quo quisquam rem hic nemo nesciunt qui repudiandae eaque laborum explicabo suscipit aut voluptates minima omnis quis accusantium sit id eveniet velit laudantium unde sint voluptatibus id aut officiis et molestiae esse molestias cumque minus deleniti odio eos voluptatem."], ["address", "West Lowell"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7fac8258bd90,'0.2E2',9(27)>], ["user_id", 62], ["created_at", 2016-10-14 11:22:32 UTC], ["updated_at", 2016-10-14 11:22:32 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "guest@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "guest@user.com"], ["encrypted_password", "$2a$04$YF2bGb02pHY39PByKw9Ww.LIe/.FY6q8XTMeNJekfc0CSi/Tvvine"], ["created_at", 2016-10-14 11:22:32 UTC], ["updated_at", 2016-10-14 11:22:32 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.4ms)[0m  [1m[32mINSERT INTO "bookings" ("user_id", "room_id", "starts_at", "ends_at", "price", "total", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 63], ["room_id", 40], ["starts_at", 2016-10-16 11:22:32 UTC], ["ends_at", 2016-10-20 11:22:32 UTC], ["price", #<BigDecimal:7fac82591b78,'0.999E1',18(18)>], ["total", #<BigDecimal:7fac82591ad8,'0.999E1',18(18)>], ["created_at", 2016-10-14 11:22:32 UTC], ["updated_at", 2016-10-14 11:22:32 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mBooking Load (1.8ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."room_id" = $1[0m  [["room_id", 40]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "host@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "host@user.com"], ["encrypted_password", "$2a$04$KppQuGJztZjPAsK57G.tZeDlNZskzpM0he6t73y0WByTN9jqQTw5."], ["created_at", 2016-10-14 11:22:33 UTC], ["updated_at", 2016-10-14 11:22:33 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Cum distinctio et."], ["description", "Suscipit expedita qui repellendus id hic dolores omnis libero ex ab eius accusantium eos voluptatum consequuntur nesciunt eos sint dolore reprehenderit velit deserunt ratione quae ut voluptate beatae ut quaerat et itaque ad quia inventore voluptatibus veritatis doloremque maxime accusamus."], ["address", "South Ozella"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7fac831f3588,'0.2E2',9(27)>], ["user_id", 64], ["created_at", 2016-10-14 11:22:33 UTC], ["updated_at", 2016-10-14 11:22:33 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "guest@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "guest@user.com"], ["encrypted_password", "$2a$04$uD0LcPut9./jnrQya8v3/.DholFtGf830zFUDtaYu/V0qUKjE8VaW"], ["created_at", 2016-10-14 11:22:33 UTC], ["updated_at", 2016-10-14 11:22:33 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "bookings" ("user_id", "room_id", "starts_at", "ends_at", "price", "total", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 65], ["room_id", 41], ["starts_at", 2016-10-16 11:22:33 UTC], ["ends_at", 2016-10-20 11:22:33 UTC], ["price", #<BigDecimal:7fac824c23f0,'0.999E1',18(18)>], ["total", #<BigDecimal:7fac824c2300,'0.999E1',18(18)>], ["created_at", 2016-10-14 11:22:33 UTC], ["updated_at", 2016-10-14 11:22:33 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mBooking Load (0.2ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."room_id" = $1[0m  [["room_id", 41]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "newell.hahn@bergnaumschoen.co"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "newell.hahn@bergnaumschoen.co"], ["encrypted_password", "$2a$04$ue7Eb/YjPQco0wfdXp8eUOVSwq3NFZKmt26p6e288mVf0QLlMMbf6"], ["created_at", 2016-10-14 11:22:33 UTC], ["updated_at", 2016-10-14 11:22:33 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Aliquid consequatur quia."], ["description", "A nulla architecto error excepturi quasi et magni cum fuga eos dolor aperiam quibusdam et consequatur assumenda vel adipisci voluptas non tenetur iusto quidem qui saepe ex doloribus accusantium asperiores laboriosam voluptatem dolorum similique aut et quo nostrum temporibus voluptatem quia vero possimus omnis."], ["address", "Lake Calefort"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7fac82249088,'0.2E2',9(27)>], ["user_id", 66], ["created_at", 2016-10-14 11:22:33 UTC], ["updated_at", 2016-10-14 11:22:33 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Id."], ["description", "Perferendis modi recusandae iure vel aut dolorem numquam consequuntur voluptas quaerat sunt qui sed occaecati sit ab error deserunt necessitatibus quo facere blanditiis magni est rerum sunt eligendi aliquam distinctio qui nisi cum corporis dolor aut pariatur explicabo quia aliquid et."], ["address", "Sauerside"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7fac83133d28,'0.2E3',9(27)>], ["user_id", 66], ["created_at", 2016-10-14 11:22:33 UTC], ["updated_at", 2016-10-14 11:22:33 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edna@prosacco.biz"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "edna@prosacco.biz"], ["encrypted_password", "$2a$04$n9eetGsODGrj0kwF8/LFy.8hbiUvPlcQgQvUzbI7C8FBRBWBshIgK"], ["created_at", 2016-10-14 11:22:33 UTC], ["updated_at", 2016-10-14 11:22:33 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "carlie@denesik.co"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "carlie@denesik.co"], ["encrypted_password", "$2a$04$wH03y0kdzwVooT1M7tShJuFsOcDqBXGbIUZmyCsWp1H8E/UAVtqXS"], ["created_at", 2016-10-14 11:22:33 UTC], ["updated_at", 2016-10-14 11:22:33 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Cupiditate necessitatibus eum dolores."], ["description", "Quo nam repudiandae voluptatem amet sed nesciunt et debitis et delectus consectetur assumenda odio neque rerum mollitia voluptate quia quo vero similique aut rem ex eos aspernatur quasi architecto pariatur voluptatem qui et est ea in qui molestiae aliquid placeat blanditiis."], ["address", "New Kelliefort"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7fac821724c0,'0.8056E2',18(36)>], ["user_id", 68], ["created_at", 2016-10-14 11:22:33 UTC], ["updated_at", 2016-10-14 11:22:33 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "Bright"], ["LIMIT", 1]]
+  [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO "themes" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Bright"], ["created_at", 2016-10-14 11:22:33 UTC], ["updated_at", 2016-10-14 11:22:33 UTC]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "rooms_themes" ("room_id", "theme_id") VALUES ($1, $2)[0m  [["room_id", 44], ["theme_id", 22]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (3.5ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" INNER JOIN "rooms_themes" ON "themes"."id" = "rooms_themes"."theme_id" WHERE "rooms_themes"."room_id" = $1 AND "themes"."id" = $2 LIMIT $3[0m  [["room_id", 44], ["id", 22], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "Clean lines"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "themes" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Clean lines"], ["created_at", 2016-10-14 11:22:33 UTC], ["updated_at", 2016-10-14 11:22:33 UTC]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "rooms_themes" ("room_id", "theme_id") VALUES ($1, $2)[0m  [["room_id", 44], ["theme_id", 23]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" INNER JOIN "rooms_themes" ON "themes"."id" = "rooms_themes"."theme_id" WHERE "rooms_themes"."room_id" = $1 AND "themes"."id" = $2 LIMIT $3[0m  [["room_id", 44], ["id", 23], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" WHERE "themes"."name" = $1 LIMIT $2[0m  [["name", "A Man's Touch"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "themes" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "A Man's Touch"], ["created_at", 2016-10-14 11:22:33 UTC], ["updated_at", 2016-10-14 11:22:33 UTC]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "rooms_themes" ("room_id", "theme_id") VALUES ($1, $2)[0m  [["room_id", 44], ["theme_id", 24]]
+  [1m[35m (3.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTheme Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "themes" INNER JOIN "rooms_themes" ON "themes"."id" = "rooms_themes"."theme_id" WHERE "rooms_themes"."room_id" = $1 AND "themes"."id" = $2 LIMIT $3[0m  [["room_id", 44], ["id", 24], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "host@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "host@user.com"], ["encrypted_password", "$2a$04$IwOZJO9wANG3eGIZRMVMVOnpU/WafNiMTvIH3KDdyfquFTEVJSJB6"], ["created_at", 2016-10-14 11:22:33 UTC], ["updated_at", 2016-10-14 11:22:33 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "rooms" ("home_type", "room_type", "accommodate", "bedroom_count", "bathroom_count", "listing_name", "description", "address", "has_tv", "has_kitchen", "has_airco", "has_heating", "has_internet", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["home_type", "House"], ["room_type", "Shared"], ["accommodate", 2], ["bedroom_count", 2], ["bathroom_count", 3], ["listing_name", "Incidunt quidem aut omnis."], ["description", "Assumenda a aut voluptas porro qui odit numquam minima dolor sunt possimus rerum est mollitia totam iste est sed aperiam esse ipsum neque harum natus non omnis accusantium eum reprehenderit eaque doloribus magni debitis id voluptatum deserunt ad quibusdam eos."], ["address", "Port Annamarieburgh"], ["has_tv", true], ["has_kitchen", true], ["has_airco", true], ["has_heating", true], ["has_internet", true], ["price", #<BigDecimal:7fac7eee5228,'0.2435E2',18(36)>], ["user_id", 69], ["created_at", 2016-10-14 11:22:33 UTC], ["updated_at", 2016-10-14 11:22:33 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "guest@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "guest@user.com"], ["encrypted_password", "$2a$04$eSUfodyz2CMpQfQTZHYKaOj4QvFnqgQ9IZyPr1riG.Zdjv/1tsswW"], ["created_at", 2016-10-14 11:22:33 UTC], ["updated_at", 2016-10-14 11:22:33 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "bookings" ("user_id", "room_id", "starts_at", "ends_at", "price", "total", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 70], ["room_id", 45], ["starts_at", 2016-10-14 10:22:22 UTC], ["ends_at", 2016-10-14 10:22:22 UTC], ["price", #<BigDecimal:7fac7e612038,'0.999E1',18(18)>], ["total", #<BigDecimal:7fac7e611de0,'0.999E1',18(18)>], ["created_at", 2016-10-14 11:22:33 UTC], ["updated_at", 2016-10-14 11:22:33 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "bookings" ON "users"."id" = "bookings"."user_id" WHERE "bookings"."room_id" = $1 AND "users"."id" = $2 LIMIT $3[0m  [["room_id", 45], ["id", 70], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
